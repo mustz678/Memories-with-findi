@@ -1,0 +1,596 @@
+/* =====================================================
+   MEMORIES ROBLOX V3
+   PART 1
+===================================================== */
+
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+
+    font-family:Arial, Helvetica, sans-serif;
+
+    background:linear-gradient(
+        180deg,
+        #ffd7e8 0%,
+        #ffeaf3 100%
+    );
+
+    overflow-x:hidden;
+
+    color:#444;
+
+    min-height:100vh;
+
+}
+
+/* =========================================
+BACKGROUND
+========================================= */
+
+.bg-decoration{
+
+    position:fixed;
+
+    inset:0;
+
+    z-index:-1;
+
+    overflow:hidden;
+
+    pointer-events:none;
+
+}
+
+.bg-decoration span{
+
+    position:absolute;
+
+    font-size:32px;
+
+    opacity:.25;
+
+    animation:floating 10s ease-in-out infinite;
+
+}
+
+.bg-decoration span:nth-child(1){
+
+    left:8%;
+    top:10%;
+
+}
+
+.bg-decoration span:nth-child(2){
+
+    left:85%;
+    top:12%;
+
+}
+
+.bg-decoration span:nth-child(3){
+
+    left:20%;
+    top:70%;
+
+}
+
+.bg-decoration span:nth-child(4){
+
+    left:75%;
+    top:55%;
+
+}
+
+.bg-decoration span:nth-child(5){
+
+    left:48%;
+    top:30%;
+
+}
+
+@keyframes floating{
+
+    0%{
+
+        transform:translateY(0px);
+
+    }
+
+    50%{
+
+        transform:translateY(-18px);
+
+    }
+
+    100%{
+
+        transform:translateY(0px);
+
+    }
+
+}
+
+/* =========================================
+HEADER
+========================================= */
+
+.hero{
+
+    text-align:center;
+
+    padding:70px 20px 40px;
+
+}
+
+.hero h1{
+
+    font-size:42px;
+
+    color:#ff4f8b;
+
+    margin-bottom:15px;
+
+}
+
+.hero p{
+
+    color:#777;
+
+    font-size:18px;
+
+}
+
+/* =========================================
+TIMELINE
+========================================= */
+
+.timeline{
+
+    width:100%;
+
+    max-width:950px;
+
+    margin:auto;
+
+    padding:30px;
+
+}
+
+/* =========================================
+POLAROID
+========================================= */
+
+.memory{
+
+    width:320px;
+
+    background:#ffffff;
+
+    padding:15px 15px 35px;
+
+    border-radius:18px;
+
+    margin-bottom:120px;
+
+    position:relative;
+
+    overflow:hidden;
+
+    box-shadow:
+        0 18px 35px rgba(0,0,0,.15);
+
+    transition:
+        transform .35s ease,
+        box-shadow .35s ease,
+        opacity .8s ease;
+
+}
+
+/* Bayangan putih seperti foto */
+
+.memory::after{
+
+    content:"";
+
+    position:absolute;
+
+    top:-35px;
+    left:-35px;
+
+    width:90px;
+    height:170px;
+
+    background:rgba(255,255,255,.25);
+
+    transform:rotate(25deg);
+
+    pointer-events:none;
+
+}
+
+/* =========================================
+IMAGE
+========================================= */
+
+.memory img{
+
+    width:100%;
+
+    display:block;
+
+    border-radius:10px;
+
+    user-select:none;
+
+    pointer-events:none;
+
+}
+
+/* =========================================
+CAPTION
+========================================= */
+
+.memory-title{
+
+    text-align:center;
+
+    margin-top:18px;
+
+    color:#ff4f8b;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+}
+
+/* =========================================
+LEFT RIGHT
+========================================= */
+
+.left{
+
+    margin-right:auto;
+
+    animation:
+        swingLeft 6s ease-in-out infinite;
+
+}
+
+.right{
+
+    margin-left:auto;
+
+    animation:
+        swingRight 7s ease-in-out infinite;
+
+}
+
+/* =========================================
+FLOATING POLAROID
+========================================= */
+
+@keyframes swingLeft{
+
+    0%{
+
+        transform:
+        translateY(0px)
+        rotate(-6deg);
+
+    }
+
+    25%{
+
+        transform:
+        translateY(-5px)
+        rotate(-4deg);
+
+    }
+
+    50%{
+
+        transform:
+        translateY(0px)
+        rotate(-6deg);
+
+    }
+
+    75%{
+
+        transform:
+        translateY(4px)
+        rotate(-7deg);
+
+    }
+
+    100%{
+
+        transform:
+        translateY(0px)
+        rotate(-6deg);
+
+    }
+
+}
+
+@keyframes swingRight{
+
+    0%{
+
+        transform:
+        translateY(0px)
+        rotate(6deg);
+
+    }
+
+    25%{
+
+        transform:
+        translateY(-4px)
+        rotate(8deg);
+
+    }
+
+    50%{
+
+        transform:
+        translateY(0px)
+        rotate(6deg);
+
+    }
+
+    75%{
+
+        transform:
+        translateY(4px)
+        rotate(5deg);
+
+    }
+
+    100%{
+
+        transform:
+        translateY(0px)
+        rotate(6deg);
+
+    }
+
+}
+
+/* =========================================
+HOVER
+========================================= */
+
+.memory:hover{
+
+    transform:
+        scale(1.04)
+        rotate(0deg);
+
+    box-shadow:
+        0 25px 45px rgba(0,0,0,.20);
+
+}
+
+/* =========================================
+SCROLL ANIMATION
+========================================= */
+
+.hidden{
+
+    opacity:0;
+
+    transform:
+        translateY(90px)
+        scale(.9);
+
+}
+
+.show{
+
+    opacity:1;
+
+    transform:
+        translateY(0)
+        scale(1);
+
+}
+
+/* =====================================================
+   MEMORIES ROBLOX V3
+   PART 3
+===================================================== */
+
+/* =========================================
+BACK BUTTON
+========================================= */
+
+footer{
+
+    text-align:center;
+
+    padding:20px 0 70px;
+
+}
+
+.back-btn{
+
+    display:inline-block;
+
+    padding:15px 35px;
+
+    border-radius:15px;
+
+    background:white;
+
+    color:#ff4f8b;
+
+    text-decoration:none;
+
+    font-weight:bold;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
+
+    transition:.35s;
+
+}
+
+.back-btn:hover{
+
+    background:#ff4f8b;
+
+    color:white;
+
+    transform:translateY(-5px);
+
+}
+
+/* =========================================
+SCROLLBAR
+========================================= */
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#ff9bc1;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#ffe9f2;
+
+}
+
+/* =========================================
+SELECTION
+========================================= */
+
+::selection{
+
+    background:#ff7fb0;
+
+    color:white;
+
+}
+
+/* =========================================
+RESPONSIVE
+========================================= */
+
+@media (max-width:768px){
+
+    .timeline{
+
+        padding:20px;
+
+    }
+
+    .memory{
+
+        width:95%;
+
+        margin-left:auto;
+
+        margin-right:auto;
+
+        margin-bottom:90px;
+
+    }
+
+    .left{
+
+        animation:mobileFloat 6s ease-in-out infinite;
+
+    }
+
+    .right{
+
+        animation:mobileFloat 6.8s ease-in-out infinite;
+
+    }
+
+    @keyframes mobileFloat{
+
+        0%{
+
+            transform:
+            translateY(0)
+            rotate(-2deg);
+
+        }
+
+        50%{
+
+            transform:
+            translateY(-5px)
+            rotate(2deg);
+
+        }
+
+        100%{
+
+            transform:
+            translateY(0)
+            rotate(-2deg);
+
+        }
+
+    }
+
+}
+
+/* =========================================
+SMALL DECORATION
+========================================= */
+
+.hero h1{
+
+    text-shadow:
+        0 0 12px rgba(255,120,170,.35);
+
+}
+
+.memory{
+
+    border:8px solid white;
+
+}
+
+/* =========================================
+SMOOTH IMAGE
+========================================= */
+
+.memory img{
+
+    transition:.4s;
+
+}
+
+.memory:hover img{
+
+    transform:scale(1.03);
+
+}
+
+/* =========================================
+END
+========================================= */

@@ -18,3 +18,49 @@ window.addEventListener("load", () => {
     }, 2500);
 
 });
+
+document.getElementById("robloxBtn").onclick = () => {
+    window.location.href = "memories-roblox.html";
+};
+
+/*
+document.getElementById("papBtn").onclick = () => {
+    window.location.href = "pages/galeri-pap.html";
+};
+
+document.getElementById("meetBtn").onclick = () => {
+    window.location.href = "pages/galeri-meet.html";
+};
+*/
+
+const popup = document.getElementById("lockPopup");
+
+const closePopup = document.getElementById("closePopup");
+
+// Tombol yang masih dikunci
+document.querySelectorAll(".locked").forEach(button=>{
+
+    button.onclick = ()=>{
+
+        popup.classList.add("active");
+
+    }
+
+});
+
+closePopup.onclick = ()=>{
+
+    popup.classList.remove("active");
+
+};
+
+// Klik area gelap juga menutup popup
+popup.onclick=(e)=>{
+
+    if(e.target===popup){
+
+        popup.classList.remove("active");
+
+    }
+
+};
